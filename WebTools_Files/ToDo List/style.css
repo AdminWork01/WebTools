@@ -1,4 +1,3 @@
-
 body {
     font-family: 'Arial', sans-serif;
     background: linear-gradient(135deg, #5fe7ff, #7bd9fe);
@@ -137,7 +136,7 @@ ul {
 }
 
 li {
-    padding: 10px;
+    padding: 10px 7px;
     margin-bottom: 10px;
     border-radius: 15px;
     background: #000000;
@@ -149,8 +148,9 @@ li {
 }
 
 li span{
+  margin: 0 5px;
   word-wrap: break-word;
-  width: 64%;
+  width: 58%;
 }
 
 li:hover {
@@ -195,6 +195,6 @@ li .edit-btn:hover {
         margin: 0;
     }
     li span{
-        width: 60%;
+        width: 50%;
     }
 }

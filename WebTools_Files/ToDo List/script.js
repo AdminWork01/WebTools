@@ -27,6 +27,14 @@ function addTodo() {
     const span = document.createElement('span');
     span.textContent = todoText;
 
+    const strikeBtn = document.createElement('input');
+    strikeBtn.setAttribute("type","checkbox")
+    strikeBtn.textContent = 'complete';
+    strikeBtn.className = 'strike-btn';
+    strikeBtn.addEventListener('click', function() {
+        strikeTodoItem(li);
+    });
+
     const editBtn = document.createElement('button');
     editBtn.textContent = 'Edit';
     editBtn.className = 'edit-btn';
@@ -41,7 +49,8 @@ function addTodo() {
         todoList.removeChild(li);
     });
 
-    li.appendChild(span)
+    li.appendChild(strikeBtn);
+    li.appendChild(span);
     li.appendChild(editBtn);
     li.appendChild(deleteBtn);
     todoList.appendChild(li);
@@ -50,9 +59,21 @@ function addTodo() {
     todoInput.focus();
 }
 
+
+function strikeTodoItem(li){
+    currentEditItem = li;
+    if(!li.childNodes[0].checked){
+        li.childNodes[1].style.textDecoration = "none";
+        li.childNodes[1].style.color= "white";
+    }else{
+        li.childNodes[1].style.textDecoration = "line-through";
+        li.childNodes[1].style.color= "green";
+    }
+}
+
 function editTodoItem(li) {
     currentEditItem = li;
-    document.getElementById('todo-input').value = li.childNodes[0].innerText;
+    document.getElementById('todo-input').value = li.childNodes[1].innerText;
     document.getElementById('add-btn').style.display = 'none';
     document.getElementById('update-btn').style.display = 'block';
 }
@@ -60,7 +81,7 @@ function editTodoItem(li) {
 function updateTodo() {
     if (currentEditItem) {
         const todoInput = document.getElementById('todo-input');
-        currentEditItem.childNodes[0].innerText = todoInput.value;
+        currentEditItem.childNodes[1].innerText = todoInput.value;
         todoInput.value = '';
         document.getElementById('add-btn').style.display = 'block';
         document.getElementById('update-btn').style.display = 'none';
