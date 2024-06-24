@@ -4,7 +4,6 @@
     box-sizing: border-box;
     font-family: sans-serif;
     outline: none;
-    /* filter: invert(100%); */
 }
 body{
     display: flex;
@@ -13,6 +12,16 @@ body{
     gap:20px;
     background-color: rgb(197, 233, 233);
 }
+
+.home-btn img{
+    width: 40px;
+    transition: opacity .5s ease-in-out;
+}
+
+.home-btn img:hover{
+    opacity: 80%;
+}
+
 .alert{
     background-color: rgba(37, 34, 34, 0.671);
     color: #ecf0f3;

@@ -16,6 +16,15 @@
     color: #141414;
   }
 
+  .home-btn img{
+    width: 40px;
+    transition: opacity .5s ease-in-out;
+}
+
+.home-btn img:hover{
+    opacity: 80%;
+}
+
   #mode{
     width: 40px;
     height: 40px;
